@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UnPiped</title>
+
+    <style>
+      <%=
+        File.read!(__DIR__ <> "/main.css")
+      %>
+    </style>
+  </head>
+  <body>
+    <header class="section">
+      <p class="title">UnPiped</p>
+    </header>
+    <main>
+      <article>
+        <h1>Recent videos</h1>
+
+        <ul class="video-grid">
+          <%= for post <- @posts do %>
+            <li>
+              <h3><%= post.title %></h3>
+              <span><%= post.source.name %></span>
+
+              <a href="<%= post.url %>">
+                  <% [_url, id] = String.split(post.url, "=") %>
+                  <img src="https://i3.ytimg.com/vi/<%= id %>/maxresdefault.jpg" alt="<%= post.title %>" />
+              </a>
+            </li>
+          <% end %>
+        </ul>
+      </article>
+    </main>
+
+    <footer>
+      <p class="supplement">UnPiped is designed with love at <a href="https://github.com/libre0b11">0b11</a>.</p>
+    </footer>
+  </body>
+</html>
