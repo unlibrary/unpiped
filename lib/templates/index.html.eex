@@ -26,7 +26,8 @@
               <h3><%= post.title %></h3>
               <span><%= post.source.name %></span>
 
-              <a href="<%= post.url %>">
+              <% url = String.replace(post.url, "www.youtube.com", "yewtu.be") %>
+              <a href="<%= url %>">
                   <% [_url, id] = String.split(post.url, "=") %>
                   <img src="https://i3.ytimg.com/vi/<%= id %>/maxresdefault.jpg" alt="<%= post.title %>" />
               </a>
