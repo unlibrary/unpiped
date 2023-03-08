@@ -31,6 +31,7 @@ defmodule UnPiped do
       username
       |> get_account()
       |> get_posts()
+      |> Enum.sort_by(& &1.date)
 
     html = EEx.eval_file(__DIR__ <> "/templates/index.html.eex", assigns: [posts: posts])
     output_path = "/tmp/unpiped_#{System.os_time()}.html"
