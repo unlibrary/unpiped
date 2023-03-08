@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>UnPiped</title>
+    <title>Unpiped</title>
 
     <style>
       <%=
@@ -14,13 +14,13 @@
   </head>
   <body>
     <header class="section">
-      <p class="title">UnPiped</p>
+      <p class="title">Unpiped</p>
     </header>
     <main>
       <article>
         <h1>Recent videos</h1>
 
-        <ul class="video-grid">
+        <ul class="list-grid">
           <%= for post <- @posts do %>
             <li>
               <h3><%= post.title %></h3>
