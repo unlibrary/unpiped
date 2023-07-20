@@ -24,7 +24,7 @@
           <%= for post <- @posts do %>
             <li>
               <h3><%= post.title %></h3>
-              <span><%= post.source.name %></span>
+              <span><%= post.source.name %>, <%= post.date |> Calendar.strftime("%Y-%m-%d") %></span>
 
               <% url = String.replace(post.url, "www.youtube.com", "yewtu.be") %>
               <a href="<%= url %>">

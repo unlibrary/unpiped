@@ -3,6 +3,7 @@ defmodule UnPiped do
   Script to pull the latest entries from Unlibrary and
   render an HTML file with a grid of videos.
   """
+  require UnPiped
 
   @spec make_call(fun()) :: term()
   defmacro make_call(fun) do
@@ -64,6 +65,7 @@ defmodule UnPiped do
 
   @spec get_posts(map()) :: [map()]
   defp get_posts(account) do
+    make_call(UnLib.Feeds.pull(account))
     make_call(UnLib.Entries.list(account))
   end
 end
